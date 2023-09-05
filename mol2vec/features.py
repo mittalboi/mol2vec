@@ -484,7 +484,7 @@ def featurize(in_file, out_file, model_path, r, uncommon=None):
         df = df[df['ROMol'].notnull()]
         df['Smiles'] = df['ROMol'].map(Chem.MolToSmiles)
     else:
-        df = pd.read_csv(in_file, delimiter='\t', usecols=[0, 1], names=['Smiles', 'ID'])  # Assume <tab> separated
+        df = pd.read_csv(in_file, delimiter=',', usecols=[0, 1], names=['ID', 'Smiles'])  # Assume <tab> separated
         PandasTools.AddMoleculeColumnToFrame(df, smilesCol='Smiles')
         print("Keeping only molecules that can be processed by RDKit.")
         df = df[df['ROMol'].notnull()]
