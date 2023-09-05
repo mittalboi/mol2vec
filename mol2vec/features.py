@@ -469,7 +469,7 @@ def featurize(in_file, out_file, model_path, r, uncommon=None):
     # File type detection
     in_split = in_file.split('.')
     f_type = in_split[-1].lower()
-    if f_type not in ['sdf', 'smi', 'ism', 'gz']:
+    if f_type not in ['sdf', 'smi', 'ism', 'gz', 'txt']:
         raise ValueError('File extension not supported (sdf, smi, ism, sdf.gz, smi.gz)')
     if f_type == 'gz':
         if in_split[-2].lower() not in ['sdf', 'smi', 'ism']:
